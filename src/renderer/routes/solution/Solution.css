@@ -1,0 +1,13 @@
+:global .solution-template-wrapper {
+    width: 100%;
+    margin-top:90px;
+    background: #fff;
+    border-color: #666;
+    position: relative;
+    &.solution-template {
+	    width: 100%;
+	    max-width: 1200px;
+	    margin: auto;
+	    position: relative;
+	}
+}

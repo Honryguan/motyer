@@ -1,0 +1,377 @@
+@ease-out            : cubic-bezier(0.215, 0.61, 0.355, 1);
+@ease-in             : cubic-bezier(0.55, 0.055, 0.675, 0.19);
+@ease-in-out         : cubic-bezier(0.645, 0.045, 0.355, 1);
+@ease-out-back       : cubic-bezier(0.12, 0.4, 0.29, 1.46);
+@ease-in-back        : cubic-bezier(0.71, -0.46, 0.88, 0.6);
+@ease-in-out-back    : cubic-bezier(0.71, -0.46, 0.29, 1.46);
+@ease-out-circ       : cubic-bezier(0.08, 0.82, 0.17, 1);
+@ease-in-circ        : cubic-bezier(0.6, 0.04, 0.98, 0.34);
+@ease-in-out-circ    : cubic-bezier(0.78, 0.14, 0.15, 0.86);
+@ease-out-quint      : cubic-bezier(0.23, 1, 0.32, 1);
+@ease-in-quint       : cubic-bezier(0.755, 0.05, 0.855, 0.06);
+@ease-in-out-quint   : cubic-bezier(0.86, 0, 0.07, 1);
+
+@dark-half: #494949;
+@purple: #d897eb; // Shadow
+@shadow-1: 4px 4px 20px 0 rgba(0,0,0,0.01);
+@shadow-2: 4px 4px 40px 0 rgba(0,0,0,0.05); //transition
+@transition-ease-in: all 0.3s @ease-in;
+@transition-ease-out: all 0.3s @ease-out; //mix
+
+.text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+:global{
+  .ant-menu-sub.ant-menu-inline > .ant-menu-item, .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title{
+    height:43px;
+  }
+
+  .ant-menu.ant-menu-dark .ant-menu-item-selected {
+      background-color: transparent;
+  }
+
+  .ant-menu.ant-menu-light .ant-menu-item-selected {
+      background-color: @primary-color;
+  }
+}
+
+:global .ant-menu-dark {
+  color: #999;
+  background-color: #595b5d;
+
+  .ant-menu-submenu-title:hover {
+    color: #fff;
+    background-color:@primary-color;
+    .ant-menu-submenu-title{
+     color:#fff;
+    }
+  }
+
+  ul.ant-menu-sub {
+    li.ant-menu-submenu{
+      background-color:#3c3d3e;
+    }
+    .ant-menu-item:hover{
+      background:@primary-color;
+      a{
+        color:#fff;
+      }
+    }
+  }
+
+  .ant-menu-submenu-selected {
+    color: @primary-color;
+
+    &:not(.ant-menu-submenu-open) {
+      background-color: @dark-half;
+    }
+  }
+
+  .ant-menu-item,
+  .ant-menu-submenu-title {
+   /* & > a {
+      color: #999;
+    }*/
+
+    & > a:hover{
+      color: #fff;
+    }
+
+    &:hover >a{
+      color:#fff;
+    }
+  }
+
+  &.ant-menu-inline {
+    .ant-menu-item-selected {
+      background-color: @dark-half;
+    }
+  }
+
+  .ant-menu-item-selected {
+    color: @primary-color;
+    background-color: @dark-half;
+
+    & > a {
+      color: @primary-color;
+    }
+
+
+    &:hover {
+      color:#fff;
+      background-color: @dark-half;
+    }
+  }
+
+  .ant-menu-item,.ant-menu-submenu-title{
+        padding: 0 5px;
+  }
+}
+
+.popovermenu {
+  width: 280px;
+  left: 12px!important;
+
+  :global .ant-popover-inner-content {
+    padding: 0;
+
+    .ant-menu-inline .ant-menu-item,
+    .ant-menu-vertical .ant-menu-item {
+      border-right: 0;
+      height: 48px;
+      line-height: 48px;
+    }
+
+    .ant-menu-inline .ant-menu-item-selected,
+    .ant-menu-inline .ant-menu-selected {
+      border-right: 0;
+    }
+  }
+}
+
+.spin {
+  :global .ant-spin-container {
+    height: 100vh;
+  }
+}
+
+:global .header {
+    background-color: rgba(0,0,0,0);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    transition: background .1s ease 0;
+    -moz-transition: background .1s ease;
+    -webkit-transition: background .1s ease;
+
+    :global .header-box {
+        width: 960px;
+        height: 90px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        position: relative;
+
+        :global .header-brand{
+            height: 90px;
+            line-height: 90px;
+            & a {
+                vertical-align: middle;
+            }
+            & a, & img {
+                display: inline-block;
+                width: 118px;
+                height: 58px;
+                border: none;
+            }
+        }
+        :global .fn-left {
+            float: left;
+        }
+        :global .header-nav{
+            margin-left: 320px;
+            & .nav-menu .nav-list {
+                float: left;
+                position: relative;
+                padding: 0 15px;
+                box-sizing: border-box;
+                height: 90px;
+                line-height: 90px;
+                & a {
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+                & .nav-list-a {
+                    font-size: 14px;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    :global .fn-clear {
+        zoom: 1;
+    }
+}
+
+:global .ui-container {
+  margin-top: -90px;
+  & .mix img { margin-left: 25px; width: 300px; height: 190px; display: block; float: left; }
+  & .mix .summary { margin-left: 360px; text-align: left;}
+  & .content { margin-top: 30px; margin-bottom: 30px; }
+
+  & .banner { 
+
+    & .banner-anim {
+        position: relative;
+        overflow: hidden;
+        height: 450px;
+        & .bg1{
+          background-image: url('https://gw.alipayobjects.com/zos/rmsportal/rdDIHRctzBPCgOiKAKDG.jpg');
+          background-size:100% auto;
+          background-repeat: no-repeat;
+          height: 450px;
+          box-shadow: inset 0 -3px 6px rgba(0,0,0,.1);
+        }
+        & .bg2{
+          background-image: url("https://gw.alipayobjects.com/zos/rmsportal/UUYEwxEZfKjrarbCDBBf.jpg");
+          background-size:100% auto;
+          background-repeat: no-repeat;
+          height: 450px;
+          box-shadow: inset 0 -3px 6px rgba(0,0,0,.1);
+        }
+        & .bg3{
+          background-image: url("https://gw.alipayobjects.com/zos/rmsportal/dqHtpdbLPSTUHVYZBUGV.jpg");          
+          background-size:100% auto;
+          background-repeat: no-repeat;
+          height: 450px;
+          box-shadow: inset 0 -3px 6px rgba(0,0,0,.1);
+        }
+        & .bg4{
+          background-image: url("https://gw.alipayobjects.com/zos/rmsportal/bVmfUDTcAYoDtGpRwbRH.jpg");
+          background-size:100% auto;
+          background-repeat: no-repeat;
+          height: 450px;
+          box-shadow: inset 0 -3px 6px rgba(0,0,0,.1);
+        }
+        & .bg5{
+          background-image: url("https://gw.alipayobjects.com/zos/rmsportal/xMreRRJlTOZjLBetFzLN.jpg");
+          background-size:100% auto;
+          background-repeat: no-repeat;
+          height: 450px;
+          box-shadow: inset 0 -3px 6px rgba(0,0,0,.1);
+        }
+        & .banner-anim-arrow{
+          display:none;
+        }
+        & .banner-anim-thumb-default span{
+        }
+        & .banner-anim-thumb-default span:active{
+        }
+    }
+  }
+  & .content{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+    width: 960px;
+    margin: 0 auto;
+    .slogan {
+      color: #019ae5;
+      font-size: 40px;
+      text-align: center;
+      font-weight: 600;
+      margin-top: 60px;
+      padding-bottom: 20px;
+    }
+    .group-summary {
+        padding-bottom: 40px;
+        .title {
+            margin: 56px 0 36px;
+            hr {
+                background-color: #979797;
+                opacity: .7;
+            }
+            p {
+                background-color: #f1f1f3;
+                font-size: 32px;
+                color: #464646;
+                text-align: center;
+                font-weight: 600;
+                width: 600px;
+                height: 50px;
+                margin: -25px auto 0;
+                position: relative;
+                z-index: 9;
+                letter-spacing: 8px;
+                padding-left: 10px;
+            }
+        }
+        .summary {
+            font-size: 16px;
+            line-height: 40px;
+            color: #777;
+            text-align: center;
+        }
+    }
+  }
+}
+
+:global .footer1{
+  background: #333;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  color: #666;
+  & > ul {
+    width: 95%;
+    max-width: 1200px;
+    margin: 40px auto 0;
+    overflow: inherit;
+    & > li {
+      float: left;
+      width: 20%;
+      padding: 10px;
+      position: relative !important; // 强制去除 queue-anim-leaving 的 absolute;
+      & h2 {
+        font-weight: normal;
+        color: #CCC;
+        margin-bottom: 20px;
+      }
+      & .icon {
+        width: 20px;
+        display: inline-block;
+        margin-left: 10px;
+        opacity: .35;
+        transition: opacity .3s @ease-out;
+        &:first-child {
+          margin-left: 0;
+        }
+        &:hover {
+          opacity: 1;
+        }
+      }
+      & a {
+        color: #666;
+        display: block;
+        &:hover {
+          color:#CCC;
+        }
+      }
+      & .logo {
+        width: 80%;
+        max-width: 150px;
+        display: block;
+      }
+    }
+  }
+  & .copyright {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    border-top: 1px solid fade(#e9e9e9, 10);
+    span{
+      display: block;
+      margin: 20px auto 0;
+    }
+  }
+}
+
+
+#root .ant-menu-dark .ant-menu-submenu:hover {
+  color: #FF6A00;
+}
+
+
+
+    
+
+
+
+    
